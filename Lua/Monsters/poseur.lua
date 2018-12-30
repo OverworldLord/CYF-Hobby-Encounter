@@ -9,7 +9,7 @@ hp = 10
 atk = 1
 def = 1
 check = "Check message goes here."
-dialogbubble = "right" -- See documentation for what bubbles you have available.
+dialogbubble = "rightwide" -- See documentation for what bubbles you have available.
 canspare = false
 cancheck = true
 
@@ -29,7 +29,14 @@ function HandleCustomCommand(command)
     elseif command == "ACT 2" then
         currentdialogue = {"Selected\nAct 2."}
     elseif command == "ACT 3" then
-        currentdialogue = {"Selected\nAct 3."}
+        currentdialogue = {"You Act 3'd?\nEh, guess you\ncan spare me."}
+		canspare = true
     end
     BattleDialog({"You selected " .. command .. "."})
+end
+
+function HandleSpare()
+	if(canspare) then
+		Spare()
+	end
 end

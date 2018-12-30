@@ -71,7 +71,7 @@ function DefenseEnding() --This built-in function fires after the defense round 
 end
 
 function HandleSpare()
-     State("ENEMYDIALOGUE")	--If we try sparing someone, enemy gets a turn
+    State("ENEMYDIALOGUE")	--If we try sparing someone, enemy gets a turn
 end
 
 function HandleItem(ItemID)

@@ -1,6 +1,6 @@
 -- The chasing attack from the documentation example.
 
-bullets = {}
+local bullets = {}
 local chasingbullet = CreateProjectile('bullet', Arena.width/2, Arena.height/2)
 table.insert(bullets, chasingbullet)
 local chasingbullet = CreateProjectile('bullet', Arena.width, Arena.height/2)

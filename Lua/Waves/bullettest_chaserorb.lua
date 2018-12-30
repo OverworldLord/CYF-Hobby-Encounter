@@ -1,6 +1,6 @@
 -- The chasing attack from the documentation example.
 
-chasingbullet = CreateProjectile('bullet', Arena.width/2, Arena.height/2)
+local chasingbullet = CreateProjectile('bullet', Arena.width/2, Arena.height/2)
 
 local last = -2
 local timer = 0

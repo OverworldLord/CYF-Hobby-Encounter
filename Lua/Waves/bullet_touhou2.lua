@@ -1,8 +1,8 @@
 -- You've seen this one in the trailer (if you've seen the trailer).
-spawntimer = 0
-bullets = {}
-yOffset = 180
-mult = 0.5
+local spawntimer = 0
+local bullets = {}
+local yOffset = 180
+local mult = 0.5
 local pitch = 1
 
 function Update()

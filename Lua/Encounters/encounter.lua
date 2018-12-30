@@ -23,7 +23,7 @@ enemypositions = {
 	
 -- A custom list with attacks to choose from. Actual selection happens in EnemyDialogueEnding(). Put here in case you want to use it.
 possible_attacks = {"bullettest_bouncy", "bullettest_chaserorb", "bullettest_touhou",
-					"bullet_quadorb","bullet_roboorb","bullet_touhou2"					}
+					"bullet_quadorb","bullet_roboorb","bullet_touhou2","boss_ball"		}
 
 function EncounterStarting()
 	Audio.LoadFile(song[1]) --Always OGG. Extension is added automatically. Remove the first two lines for custom music.
@@ -51,6 +51,7 @@ function EnemyDialogueEnding()
     -- Good location to fill the 'nextwaves' table with the attacks you want to have simultaneously.
     -- This example line below takes a random attack from 'possible_attacks'.
 	nextwaves = { possible_attacks[math.random(#possible_attacks)] }	--Force the next attack to be randomized
+	nextwaves = { "boss_ball" }
 
 end
 

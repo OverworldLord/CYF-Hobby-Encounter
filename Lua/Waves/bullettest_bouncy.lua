@@ -1,6 +1,6 @@
 -- The bouncing bullets attack from the documentation example.
-spawntimer = 0
-bullets = {}
+local spawntimer = 0
+local bullets = {}
 
 function Update()
 	spawntimer = spawntimer + 1

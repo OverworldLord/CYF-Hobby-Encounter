@@ -22,7 +22,8 @@ enemypositions = {
 }
 	
 -- A custom list with attacks to choose from. Actual selection happens in EnemyDialogueEnding(). Put here in case you want to use it.
-possible_attacks = {"bullettest_bouncy", "bullettest_chaserorb", "bullettest_touhou"}
+possible_attacks = {"bullettest_bouncy", "bullettest_chaserorb", "bullettest_touhou",
+					"bullet_quadorb","bullet_roboorb","bullet_touhou2"					}
 
 function EncounterStarting()
 	Audio.LoadFile(song[1]) --Always OGG. Extension is added automatically. Remove the first two lines for custom music.
@@ -49,22 +50,21 @@ end
 function EnemyDialogueEnding()
     -- Good location to fill the 'nextwaves' table with the attacks you want to have simultaneously.
     -- This example line below takes a random attack from 'possible_attacks'.
-	nextwaves = {"bullettest_roboorb"}
+	nextwaves = { possible_attacks[math.random(#possible_attacks)] }	--Force the next attack to be randomized
 
 end
 
 function DefenseEnding() --This built-in function fires after the defense round ends.
     encountertext = RandomEncounterText() --This built-in function gets a random encounter text from a random enemy.
 	wave = wave + 1	--Increment the current wave
-	nextwaves = { possible_attacks[math.random(#possible_attacks)] }
     Audio["RESETDICTIONARY"] = "dogsecret"	--Reset the hurt sound to default
 	Audio.Pitch(1);	--Reset the pitch of the sound
 	
 	if(wave >= SEQ_WAVE and wave < SEQ_WAVE + 4) then	--If our current wave is set to be in a sequence
+		nextwaves = { possible_attacks[math.random(#possible_attacks)] }	--Force the next attack to be randomized
 		if(wave == SEQ_WAVE) then					--If this is the first wave in the sequence
 			Audio.LoadFile(song[2])					--Set the music (causes some noticable lag)
 		end											--End inner if statement
-		nextwaves = { possible_attacks[math.random(#possible_attacks)] }	--Force the next attack to be randomized
 		State("DEFENDING")													--Call the next attack
 	end													--endif
 

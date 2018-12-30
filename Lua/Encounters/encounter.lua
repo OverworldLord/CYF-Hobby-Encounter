@@ -9,8 +9,8 @@ wave = 0
 --constants
 SEQ_WAVE = 3
 
-song = { 	"Sunset Heights With Me [Vocal Mix]",
-			"Sunset Heights [Beta Mix]"
+song = { 	"Battle",
+			"vs_susie"
 }
 
 enemies = {

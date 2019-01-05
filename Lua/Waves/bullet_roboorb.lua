@@ -24,6 +24,8 @@ function Update()
 		timer = 0
 	end
 	
+
+	
 	for i = 1, #bullets do
 		local randTrans = 3 - (math.random(6))
 		local bullet = bullets[i]
@@ -54,4 +56,8 @@ function Update()
 	end
 	
 	timer = timer + 1
+	
+	if(#bullets >= 10) then
+		State("ACTIONSELECT")
+	end
 end

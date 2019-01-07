@@ -6,6 +6,7 @@ nextwaves = {"bullettest_roboorb"}
 wavetimer = 64
 arenasize = {155, 130}
 wave = 0
+SetGlobal("wave", wave)
 
 Inventory.AddCustomItems({"DogeMeat", "SAVESTATE.EXE"}, {0, 0})
 Inventory.SetInventory({"DogeMeat", "SAVESTATE.EXE"})
@@ -14,15 +15,19 @@ Inventory.SetInventory({"DogeMeat", "SAVESTATE.EXE"})
 SEQ_WAVE = 3
 OVERRIDE_ATTACKS = false
 ATTACK_WHEN_OVER = "player_simon_8prompt_regcont"	--Attack to perform whilst override is on
-SONG_SETLIST = math.random(2)
+SONG_SETLIST = math.random(3)
 
 if(SONG_SETLIST == 1) then
 	song = { 	"Battle",
 				"vs_susie"
 	}
-else
+elseif(SONG_SETLIST == 2) then
 	song = { 	"ChemPastZone2a",
 				"ChemPastZone2"
+	}
+else
+	song = {	"AUDIO_STORY3part1",
+				"AUDIO_STORY3part2"
 	}
 end
 
@@ -86,6 +91,7 @@ end
 function DefenseEnding() --This built-in function fires after the defense round ends.
     encountertext = RandomEncounterText() --This built-in function gets a random encounter text from a random enemy.
 	wave = wave + 1	--Increment the current wave
+	SetGlobal("wave", wave)
     Audio["RESETDICTIONARY"] = "dogsecret"	--Reset the hurt sound to default
 	Audio.Pitch(1);	--Reset the pitch of the sound
 end

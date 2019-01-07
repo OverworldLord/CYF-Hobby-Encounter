@@ -85,6 +85,7 @@ function Update()
 		hourglass.Remove()
 		Player.hurt(3)
 		Audio.pitch(1.00)
+		Misc.ShakeScreen(60, 7, true)
 	elseif(count == 400 and guidesleft != 0) then
 		State("ACTIONSELECT")
 	end
